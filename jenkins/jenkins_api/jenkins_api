@@ -1,0 +1,14 @@
+Use jenkins rest api to
+
+1) Get the list of all jobs
+Solution: curl -u aman:54b9ac7f7bb733c3140eaa65a18447f7 http://localhost:8080/api/json?pretty=true
+ 
+2) Get the last build status
+Solution: curl -u aman:54b9ac7f7bb733c3140eaa65a18447f7 http://localhost:8080/job/HelloWorld/lastBuild/api/json 
+
+3) Get the console o/p of a job build.
+Solution: curl -u aman:54b9ac7f7bb733c3140eaa65a18447f7 http://localhost:8080/job/HelloWorld/lastBuild/consoleText/api/json
+
+4) Trigger a jenkins job build
+Solution: curl -u aman:54b9ac7f7bb733c3140eaa65a18447f7 -X POST http://localhost:8080/job/HelloWorld/build
+
