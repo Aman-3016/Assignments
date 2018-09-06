@@ -1,0 +1,8 @@
+# localhost ansible_connection=local
+[centos]
+centos1 ansible_host=13.59.161.163
+
+
+[ubuntu]
+ubuntu1 ansible_host=18.191.30.10
+
