@@ -1,0 +1,21 @@
+---
+  - name: Download Java
+    get_url:
+      url: "{{download_url}}"
+      dest: "{{download_folder}}" 
+      headers: "Cookie: oraclelicense=accept-securebackup-cookie"
+  - name: Unpack archive
+    unarchive:
+      src: "{{java_archive}}"
+      dest: "{{download_folder}}"
+      remote_src: yes    
+  - name: Fix ownership
+    file: state=directory path={{java_name}} owner=ec2-user group=ec2-user recurse=yes
+
+  - name: Make Java available for system
+    alternatives:
+       name: java
+       path: "{{java_name}}/bin/java"
+  - name: Clean up
+    file: state=absent path={{java_archive}}
+
